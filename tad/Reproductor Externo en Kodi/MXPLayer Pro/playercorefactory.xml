@@ -1,34 +1,33 @@
 <playercorefactory>
 	<players>
-		
-		<player name="MXPlayerPro" type="ExternalPlayer" audio="false" video="true">
+		<!-- MXPLAYER -->
+                                    <player name="MXPlayerPro" type="ExternalPlayer" audio="false" video="true">
 			<filename>com.mxtech.videoplayer.pro</filename>
 			<hidexbmc>true</hidexbmc>
 			<playcountminimumtime>120</playcountminimumtime>
 		</player>
-		
-		<player name="Wrapper" type="ExternalPlayer" audio="false" video="true">
-			<filename>com.himedia.xbmcwrapper</filename>
-			<hidexbmc>true</hidexbmc>
-			<playcountminimumtime>120</playcountminimumtime>
-		</player>
-		
-	</players>
+                  </players>
+
+
+	<!-- REGLAS -->
 
 	<rules action="prepend">
+
+	<!-- Archivos Biblioteca de 720p y 1080p -->
+		<rule videoresolution="720|1080" player="MXPlayerPro"/>
 		
-		<!--Video Rules-->
-		<rule video="true" player="MXPlayerPro" >
-			<rule videocodec="mpeg2" player="VideoPlayer" />
-			<rule filetypes="iso|bdmv" player="Wrapper" />
-		</rule>
+	<!-- Archivos SAMBA -->
+		<rule protocols="smb" player="DVDPLAYER"/>
+
+	<!-- Streams HTTP y Contenido Online -->
+		<rule protocols="http" player="MXPlayerPro"/>
 		
-		<!--Audio Rules-->
-		<rule audio="true" player="PAplayer" />
-		
-		<!--Stream Rules-->
-		<rule internetstream="true" player="VideoPlayer" />
-		<rule protocols="http|https|rtmp|sop|pvr" player="VideoPlayer" />
-		
-	</rules>		
+	<!-- Streams RTMP, RTSP -->
+		<rule protocols="rtmp" player="DVDPLAYER"/>
+		<rule protocols="rtsp" player="DVDPLAYER"/>
+			
+	<!-- DVD -->
+		<rule dvdimage="true" player="DVDPLAYER"/>
+			
+	</rules>
 </playercorefactory>
