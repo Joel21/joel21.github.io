@@ -3,7 +3,7 @@
 		<!-- MXPLAYER -->
                                     <player name="MXPlayerPro" type="ExternalPlayer" audio="false" video="true">
 			<filename>com.mxtech.videoplayer.pro</filename>
-			<hidexbmc>true</hidexbmc>
+			<hidekodi>true</hidekodi>
 			<playcountminimumtime>120</playcountminimumtime>
 		</player>
                   </players>
